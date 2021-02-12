@@ -1,105 +1,65 @@
 # Lista-encadeada
-package árvore;
 
-public class arvoremain {
+// primeiro exercicio
 
-	public static void main(String[] args) {
-		
-		Arvore<Integer> arvore = new Arvore <Integer>();
-		arvore.adicionar(10);
-		arvore.adicionar(15);
+package encadeamento;
 
-	}
+import java.util.LinkedList;
 
-}
-
-package árvore;
-
-public class Arvore <TIPO extends Compareble> {
+public class ex1 {
 	
-
 	public static void main(String args[]) {
+	
+		Integer soma = 0;
+
+		LinkedList<Integer> lista = new LinkedList<Integer>();
+		lista.add (1);
+		lista.add (2);
+		lista.add (3);
+		lista.add (4);
+		lista.add (5);
+		lista.add (6);
 		
-		private Elemento<TIPO> raiz;
+		System.out.println("lista " +lista);
 		
-		public Arvore(){
-			this.raiz = null;
-			
+		for (int cont = 0; cont < lista.size(); cont++) {
+			soma = soma + lista.get(cont);
 		}
 		
-	    public void adicionar (TIPO valor) {
-	    	Elemento<TIPO> novoElemento = new Elemento<TIPO>(valor);
-	    	if (raiz == null){
-			this.raiz = novoElemento;
-	    	}else{
-	    		Elemento<TIPO> atual = this.raiz;
-	    		
-	    	while (true) {
-	    		if (novoElemento.getValor() .comparebleTo (atual.getValor()) == -1) {
-	    			if (atual.getEsquerda() != null) {
-	    				atual = atual.getEsquerda();
-	    				
-	    			}else{
-	    				atual.setEsquerda(novoElemento);
-	    				break;
-	    			}
-	    			
-	    		}else{
-	    			if (atual.getDireita() != null) {
-	    				atual = atual.getDireita();
-	    				
-	    			}else{
-	    				atual.setDireita(novoElemento);
-	    				break;
-	    			
-	    		}
-	    	}
-	    	}
-	    }
-	
-	}
-
+		System.out.println("Soma dos números da lista: " +soma);
+}
 }
 
-package árvore;
+// segundo exercício
 
-public class Elemento<TIPO>{
-	private TIPO valor;
-	private Elemento<TIPO> esquerda;
-	private Elemento<TIPO> direita;
+package encadeamento;
+
+import java.util.LinkedList;
+
+public class ex2 {
 	
-	public Elemento (TIPO novovalor) {
-		this.valor = novovalor;
-		this.esquerda = null;
-		this.direita = null;
-	}
-
-	public TIPO getValor() {
-		return valor;
-	}
-
-	public void setValor(TIPO valor) {
-		this.valor = valor;
-	}
-
-	public Elemento<TIPO> getEsquerda() {
-		return esquerda;
-	}
-
-	public void setEsquerda(Elemento<TIPO> esquerda) {
-		this.esquerda = esquerda;
-	}
-
-	public Elemento<TIPO> getDireita() {
-		return direita;
-	}
-
-	public void setDireita(Elemento<TIPO> direita) {
-		this.direita = direita;
-	}
-	
-	
-	
-	
-
+	public static void main(String args[]) {
+		
+		
+		LinkedList<Integer> lista = new LinkedList<Integer>();
+		lista.add (1);
+		lista.add (2);
+		lista.add (3);
+		lista.add (4);
+		lista.add (6);
+		lista.add (5);
+		
+		System.out.println("lista " +lista);
+		
+		Integer maior = 0;
+		
+		for (int cont = 0; cont < lista.size(); cont++) {
+			
+			if (maior < lista.get(cont))
+				maior = lista.get(cont);
+			
+			System.out.println("O maior nodo da lista é: " +maior);
+			
+		}
+		}
 }
